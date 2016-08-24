@@ -50,10 +50,10 @@
 	var ReactDOM = __webpack_require__(158);
 	var Landing = __webpack_require__(159);
 	var Search = __webpack_require__(223);
-	var Layout = __webpack_require__(226);
-	var Details = __webpack_require__(227);
+	var Layout = __webpack_require__(225);
+	var Details = __webpack_require__(226);
 
-	var _require = __webpack_require__(224);
+	var _require = __webpack_require__(227);
 
 	var shows = _require.shows;
 
@@ -25775,7 +25775,7 @@
 	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
 	var React = __webpack_require__(1);
-	var ShowCard = __webpack_require__(225);
+	var ShowCard = __webpack_require__(224);
 	var _React$PropTypes = React.PropTypes;
 	var arrayOf = _React$PropTypes.arrayOf;
 	var object = _React$PropTypes.object;
@@ -25825,6 +25825,160 @@
 
 /***/ },
 /* 224 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var React = __webpack_require__(1);
+	var ShowCard = function ShowCard(props) {
+		return React.createElement(
+			'div',
+			{ className: 'show-card' },
+			React.createElement('img', { src: 'public/img/posters/' + props.poster, className: 'show-card-img' }),
+			React.createElement(
+				'div',
+				{ className: 'show-card-text' },
+				React.createElement(
+					'h3',
+					{ className: 'show-card-title' },
+					props.title
+				),
+				React.createElement(
+					'h4',
+					{ className: 'show-card-year' },
+					props.year
+				),
+				React.createElement(
+					'p',
+					{ className: 'show-card-description' },
+					props.description
+				)
+			)
+		);
+	};
+	var string = React.PropTypes.string;
+
+	ShowCard.propTypes = {
+		title: string.isRequired,
+		description: string.isRequired,
+		year: string.isRequired,
+		poster: string.isRequired
+	};
+	module.exports = ShowCard;
+
+/***/ },
+/* 225 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var React = __webpack_require__(1);
+
+	var Layout = function Layout(props) {
+		return React.createElement(
+			'div',
+			{ className: 'app-container' },
+			props.children
+		);
+	};
+	var element = React.PropTypes.element;
+
+	Layout.PropTypes = {
+		children: element.isRequired
+	};
+	module.exports = Layout;
+
+/***/ },
+/* 226 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var React = __webpack_require__(1);
+
+	var Details = function (_React$Component) {
+		_inherits(Details, _React$Component);
+
+		function Details() {
+			_classCallCheck(this, Details);
+
+			return _possibleConstructorReturn(this, Object.getPrototypeOf(Details).apply(this, arguments));
+		}
+
+		_createClass(Details, [{
+			key: 'render',
+			value: function render() {
+				var params = this.props.params || {};
+				var title = params.title;
+				var description = params.description;
+				var year = params.year;
+				var poster = params.poster;
+				var trailer = params.trailer;
+
+				return React.createElement(
+					'div',
+					{ className: 'container' },
+					React.createElement(
+						'header',
+						{ className: 'header' },
+						React.createElement(
+							'h1',
+							{ className: 'brand' },
+							'svideo'
+						)
+					),
+					React.createElement(
+						'div',
+						{ className: 'video-info' },
+						React.createElement(
+							'h1',
+							{ className: 'video-title' },
+							title
+						),
+						React.createElement(
+							'h2',
+							{ className: 'video-year' },
+							'(',
+							year,
+							')'
+						),
+						React.createElement('img', { className: 'video-poster', src: '/public/img/posters/' + poster }),
+						React.createElement(
+							'p',
+							{ className: 'video-description' },
+							description
+						)
+					),
+					React.createElement(
+						'div',
+						{ className: 'video-container' },
+						React.createElement('iframe', { src: 'https://www.youtube-nocookie.com/embed/' + trailer + '\n\t\t\t\t\t?rel=0&amp;controls=0&amp;showinfo=0', frameBorder: '0',
+							allowFullScreen: true })
+					)
+				);
+			}
+		}]);
+
+		return Details;
+	}(React.Component);
+
+	var object = React.PropTypes.object;
+
+	Details.propTypes = {
+		params: object.isRequired
+	};
+	module.exports = Details;
+
+/***/ },
+/* 227 */
 /***/ function(module, exports) {
 
 	module.exports = {
@@ -25999,160 +26153,6 @@
 			}
 		]
 	};
-
-/***/ },
-/* 225 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	var React = __webpack_require__(1);
-	var ShowCard = function ShowCard(props) {
-		return React.createElement(
-			'div',
-			{ className: 'show-card' },
-			React.createElement('img', { src: 'public/img/posters/' + props.poster, className: 'show-card-img' }),
-			React.createElement(
-				'div',
-				{ className: 'show-card-text' },
-				React.createElement(
-					'h3',
-					{ className: 'show-card-title' },
-					props.title
-				),
-				React.createElement(
-					'h4',
-					{ className: 'show-card-year' },
-					props.year
-				),
-				React.createElement(
-					'p',
-					{ className: 'show-card-description' },
-					props.description
-				)
-			)
-		);
-	};
-	var string = React.PropTypes.string;
-
-	ShowCard.propTypes = {
-		title: string.isRequired,
-		description: string.isRequired,
-		year: string.isRequired,
-		poster: string.isRequired
-	};
-	module.exports = ShowCard;
-
-/***/ },
-/* 226 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	var React = __webpack_require__(1);
-
-	var Layout = function Layout(props) {
-		return React.createElement(
-			'div',
-			{ className: 'app-container' },
-			props.children
-		);
-	};
-	var element = React.PropTypes.element;
-
-	Layout.PropTypes = {
-		children: element.isRequired
-	};
-	module.exports = Layout;
-
-/***/ },
-/* 227 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-	var React = __webpack_require__(1);
-
-	var Details = function (_React$Component) {
-		_inherits(Details, _React$Component);
-
-		function Details() {
-			_classCallCheck(this, Details);
-
-			return _possibleConstructorReturn(this, Object.getPrototypeOf(Details).apply(this, arguments));
-		}
-
-		_createClass(Details, [{
-			key: 'render',
-			value: function render() {
-				var params = this.props.params || {};
-				var title = params.title;
-				var description = params.description;
-				var year = params.year;
-				var poster = params.poster;
-				var tailer = params.tailer;
-
-				return React.createElement(
-					'div',
-					{ className: 'container' },
-					React.createElement(
-						'header',
-						{ className: 'header' },
-						React.createElement(
-							'h1',
-							{ className: 'branding' },
-							'svideo'
-						)
-					),
-					React.createElement(
-						'div',
-						{ className: 'video-info' },
-						React.createElement(
-							'h1',
-							{ className: 'video-title' },
-							title
-						),
-						React.createElement(
-							'h2',
-							{ className: 'video-year' },
-							'(',
-							year,
-							')'
-						),
-						React.createElement('img', { className: 'video-poster', src: 'public/img/posters/' + poster }),
-						React.createElement(
-							'p',
-							{ className: 'video-description' },
-							description
-						)
-					),
-					React.createElement(
-						'div',
-						{ className: 'video-container' },
-						React.createElement('iframe', { src: 'https://www.youtube-nocookie.com/embed/' + trailer + '\n\t\t\t\t\t?rel=0&amp;controls=0&amp;showinfo=0', frameBorder: '0',
-							allowFullScreen: true })
-					)
-				);
-			}
-		}]);
-
-		return Details;
-	}(React.Component);
-
-	var object = React.propTypes.object;
-
-	Details.propTypes = {
-		params: object.isRequired
-	};
-	module.exports = Details;
 
 /***/ }
 /******/ ]);
